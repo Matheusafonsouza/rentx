@@ -1,4 +1,4 @@
-import { Category } from "../model/category";
+import { Category } from '../model/category';
 
 interface ICreateCategoryDTO {
   name: string;
@@ -24,6 +24,10 @@ class CategoriesRepository {
     this.categories.push(category);
 
     return category;
+  }
+
+  list(): Category[] {
+    return this.categories;
   }
 }
 
