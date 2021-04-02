@@ -22,6 +22,8 @@
     ],
     "rules": {
         "camelcase": "off",
+        "no-empty-function": "off",
+        "no-useless-constructor": "off",
         "prettier/prettier": "error",
         "import/no-unresolved": "error",
         "@typescript-eslint/naming-convention": [
@@ -41,8 +43,6 @@
         "import/prefer-default-export": "off",
         "no-shadow": "off",
         "no-console": "off",
-        "no-useless-constructor": "off",
-        "no-empty-function": "off",
         "lines-between-class-members": "off",
         "import/extensions": [
             "error",
