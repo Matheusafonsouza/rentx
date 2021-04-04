@@ -8,7 +8,10 @@ services:
       - 3333:3333
     volumes:
       - .:/usr/app
-    network_mode: host
+    depends_on:
+      - database
+    links:
+      - database
 
   database:
     image: postgres
@@ -22,7 +25,6 @@ services:
       - POSTGRES_DB=rentx
     volumes:
       - pgdata:/data/postgres
-    network_mode: host
 
 volumes:
   pgdata:
