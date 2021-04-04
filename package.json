@@ -1,8 +1,8 @@
 {
-  "name": "rentalx",
+  "name": "rentx",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:Matheusafonsouza/rentalx.git",
+  "repository": "git@github.com:Matheusafonsouza/rentx.git",
   "author": "Matheus Afonso <matheusafonsouza@gmail.com>",
   "scripts": {
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts"
