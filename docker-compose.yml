@@ -8,3 +8,22 @@ services:
       - 3333:3333
     volumes:
       - .:/usr/app
+    network_mode: host
+
+  database:
+    image: postgres
+    container_name: database_rentx
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=rentx
+    volumes:
+      - pgdata:/data/postgres
+    network_mode: host
+
+volumes:
+  pgdata:
+    driver: local
