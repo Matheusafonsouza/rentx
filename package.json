@@ -5,7 +5,8 @@
   "repository": "git@github.com:Matheusafonsouza/rentx.git",
   "author": "Matheus Afonso <matheusafonsouza@gmail.com>",
   "scripts": {
-    "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts"
+    "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts",
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli"
   },
   "license": "MIT",
   "devDependencies": {
