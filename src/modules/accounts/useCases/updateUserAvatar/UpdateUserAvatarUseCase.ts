@@ -1,6 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 
 import { AppError } from '../../../../errors/AppError';
+import { deleteFile } from '../../../../utils/file';
 import { User } from '../../entities/User';
 import { IUsersRepository } from '../../repositories/IUsersRepository';
 
@@ -21,6 +22,12 @@ class UpdateUserAvatarUseCase {
 
     if (!user) {
       throw new AppError('User does not exists.');
+    }
+
+    const avatarPath = `./tmp/avatar/${user.avatar}`;
+
+    if (user.avatar) {
+      await deleteFile(avatarPath);
     }
 
     user.avatar = avatar_file;
