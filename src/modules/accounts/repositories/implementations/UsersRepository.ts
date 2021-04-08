@@ -24,7 +24,7 @@ class UsersRepository implements IUsersRepository {
       password,
     });
 
-    const createdUser = await this.repository.save(user);
+    const createdUser = await this.save(user);
 
     return createdUser;
   }
@@ -42,6 +42,11 @@ class UsersRepository implements IUsersRepository {
   async findById(id: string): Promise<User> {
     const user = await this.repository.findOne(id);
     return user;
+  }
+
+  async save(user: User): Promise<User> {
+    const savedUser = await this.repository.save(user);
+    return savedUser;
   }
 }
 
