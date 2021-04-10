@@ -6,7 +6,7 @@ let createCategoryUseCase: CreateCategoryUseCase;
 let categoriesRepositoryMock: CategoriesRepositoryMock;
 
 describe('Create category', () => {
-  beforeAll(() => {
+  beforeEach(() => {
     categoriesRepositoryMock = new CategoriesRepositoryMock();
     createCategoryUseCase = new CreateCategoryUseCase(categoriesRepositoryMock);
   });
