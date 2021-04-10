@@ -1,8 +1,9 @@
-import { Category } from '../../../entities/Category';
+import { Category } from '@modules/cars/entities/Category';
+
 import {
   ICategoriesRepository,
   ICreateCategoryDTO,
-} from '../../ICategoriesRepository';
+} from '../ICategoriesRepository';
 
 class CategoriesRepositoryMock implements ICategoriesRepository {
   categories: Category[] = [];
