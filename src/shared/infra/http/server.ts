@@ -1,16 +1,16 @@
 import 'reflect-metadata';
 import express, { NextFunction, Request, Response } from 'express';
-
-import { AppError } from '@errors/AppError';
-import routes from '@routes/index';
-
-import 'express-async-errors';
 import swaggerUI from 'swagger-ui-express';
 
-import swaggerFile from './swagger.json';
+import { AppError } from '@shared/errors/AppError';
+import routes from '@shared/infra/http/routes/index';
 
-import './database';
-import './shared/container';
+import 'express-async-errors';
+
+import swaggerFile from '../../../swagger.json';
+
+import '@shared/infra/typeorm';
+import '@shared/container';
 
 const app = express();
 app.use(express.json());

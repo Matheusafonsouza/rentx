@@ -12,9 +12,6 @@
       "@config/*": [
         "config/*"
       ],
-      "@errors/*": [
-        "errors/*"
-      ],
       "@routes/*": [
         "routes/*"
       ],
@@ -26,9 +23,6 @@
       ],
       "@database/*": [
         "database/*"
-      ],
-      "@middlewares/*": [
-        "middlewares/*"
       ]
     },
     "esModuleInterop": true,
