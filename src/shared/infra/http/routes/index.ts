@@ -13,8 +13,6 @@ const routes = Router();
 routes.use('/users', usersRoutes);
 routes.use(sessionRoutes);
 
-routes.use(ensureAuthenticated);
-
 routes.use('/categories', categoriesRoutes);
 routes.use('/specifications', specificationsRoutes);
 routes.use('/cars', carsRoutes);
