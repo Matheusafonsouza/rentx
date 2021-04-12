@@ -1,9 +1,6 @@
 import { Category } from '@modules/cars/infra/typeorm/entities/Category';
 
-interface ICreateCategoryDTO {
-  name: string;
-  description: string;
-}
+import { ICreateCategoryDTO } from '../dtos/ICreateCategoryDTO';
 
 interface ICategoriesRepository {
   findByName(name: string): Promise<Category>;
@@ -11,4 +8,4 @@ interface ICategoriesRepository {
   create(data: ICreateCategoryDTO): Promise<Category>;
 }
 
-export { ICategoriesRepository, ICreateCategoryDTO };
+export { ICategoriesRepository };
