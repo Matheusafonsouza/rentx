@@ -1,14 +1,14 @@
 import { CarsRepositoryMock } from '@modules/cars/repositories/mocks/CarsRepositoryMock';
 
-import { ListCarsUseCase } from './ListCarsUseCase';
+import { ListAvailableCarsUseCase } from './ListAvailableCarsUseCase';
 
-let listCarsUseCase: ListCarsUseCase;
+let listAvailableCarsUseCase: ListAvailableCarsUseCase;
 let carsRepositoryMock: CarsRepositoryMock;
 
 describe('List cars', () => {
   beforeEach(() => {
     carsRepositoryMock = new CarsRepositoryMock();
-    listCarsUseCase = new ListCarsUseCase(carsRepositoryMock);
+    listAvailableCarsUseCase = new ListAvailableCarsUseCase(carsRepositoryMock);
   });
 
   it('Should be able to list all available cars', async () => {
@@ -22,7 +22,7 @@ describe('List cars', () => {
       license_plate: 'abc-1244',
     });
 
-    const cars = await listCarsUseCase.execute({});
+    const cars = await listAvailableCarsUseCase.execute({});
 
     expect(cars).toEqual([car]);
   });
@@ -38,7 +38,7 @@ describe('List cars', () => {
       license_plate: 'abc-1244',
     });
 
-    const cars = await listCarsUseCase.execute({
+    const cars = await listAvailableCarsUseCase.execute({
       brand: 'brand_test',
     });
 
@@ -56,7 +56,7 @@ describe('List cars', () => {
       license_plate: 'abc-1244',
     });
 
-    const cars = await listCarsUseCase.execute({
+    const cars = await listAvailableCarsUseCase.execute({
       category_id: 'category_id_test',
     });
 
@@ -74,7 +74,7 @@ describe('List cars', () => {
       license_plate: 'abc-1244',
     });
 
-    const cars = await listCarsUseCase.execute({
+    const cars = await listAvailableCarsUseCase.execute({
       name: 'test car',
     });
 
