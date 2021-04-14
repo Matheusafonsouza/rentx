@@ -14,6 +14,8 @@ class CarsRepositoryMock implements ICarsRepository {
     category_id,
     name,
     description,
+    specifications,
+    id,
   }: ICreateCarDTO): Promise<Car> {
     const car = new Car();
 
@@ -25,6 +27,8 @@ class CarsRepositoryMock implements ICarsRepository {
       fine_amount,
       brand,
       category_id,
+      id,
+      specifications,
     });
 
     this.cars.push(car);
