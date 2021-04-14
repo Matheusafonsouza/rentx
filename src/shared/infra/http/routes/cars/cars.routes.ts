@@ -20,7 +20,6 @@ carsRoutes.post(
 
 carsRoutes.get(
   '/available',
-  ensureAuthenticated,
   listAvailableCarsController.handle
 );
 
