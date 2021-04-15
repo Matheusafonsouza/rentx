@@ -1,4 +1,5 @@
 import { RentalsRepositoryMock } from '@modules/rentals/repositories/mocks/RentalsRepositoryMock';
+import { AppError } from '@shared/errors/AppError';
 
 import { CreateRentalUseCase } from './CreateRentalUseCase';
 
@@ -20,5 +21,21 @@ describe('Create Rental', () => {
 
     expect(rental).toHaveProperty('id');
     expect(rental).toHaveProperty('start_date');
+  });
+
+  it('Should not be able to create a new rental if there is another open to the same user', async () => {
+    expect(async () => {
+      await createRentalUseCase.execute({
+        car_id: 'car-id',
+        user_id: 'same-user-id',
+        expected_return_date: new Date(),
+      });
+
+      await createRentalUseCase.execute({
+        car_id: 'car-id',
+        user_id: 'same-user-id',
+        expected_return_date: new Date(),
+      });
+    }).rejects.toBeInstanceOf(AppError);
   });
 });
