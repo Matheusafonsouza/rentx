@@ -45,4 +45,23 @@ describe('Create category controller', () => {
 
     expect(response.status).toBe(201);
   });
+
+  it('Should not be able to create a category with an already exists name', async () => {
+    const responseToken = await request(app).post('/sessions').send({
+      email: 'admin@rentx.com.br',
+      password: 'admin',
+    });
+
+    const { token } = responseToken.body;
+
+    const response = await request(app)
+      .post('/categories')
+      .send({
+        name: 'category test',
+        description: 'category test description',
+      })
+      .set({ authorization: `Bearer ${token}` });
+
+    expect(response.status).toBe(400);
+  });
 });
