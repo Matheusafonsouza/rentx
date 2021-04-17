@@ -15,6 +15,6 @@ routes.use(sessionRoutes);
 routes.use('/categories', categoriesRoutes);
 routes.use('/specifications', specificationsRoutes);
 routes.use('/cars', carsRoutes);
-routes.use('rentals', rentalsRouter);
+routes.use('/rentals', rentalsRouter);
 
 export default routes;
