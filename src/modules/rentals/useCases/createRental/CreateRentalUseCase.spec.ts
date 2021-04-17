@@ -1,5 +1,6 @@
 import dayjs from 'dayjs';
 
+import { CarsRepositoryMock } from '@modules/cars/repositories/mocks/CarsRepositoryMock';
 import { RentalsRepositoryMock } from '@modules/rentals/repositories/mocks/RentalsRepositoryMock';
 import { DayjsDateProvider } from '@shared/container/providers/DateProvider/implementations/DayjsDateProvider';
 import { AppError } from '@shared/errors/AppError';
@@ -8,6 +9,7 @@ import { CreateRentalUseCase } from './CreateRentalUseCase';
 
 let createRentalUseCase: CreateRentalUseCase;
 let rentalsRepository: RentalsRepositoryMock;
+let carsRepositoryMock: CarsRepositoryMock;
 let dayjsDateProvider: DayjsDateProvider;
 
 describe('Create Rental', () => {
@@ -18,7 +20,8 @@ describe('Create Rental', () => {
     dayjsDateProvider = new DayjsDateProvider();
     createRentalUseCase = new CreateRentalUseCase(
       rentalsRepository,
-      dayjsDateProvider
+      dayjsDateProvider,
+      carsRepositoryMock
     );
   });
 
