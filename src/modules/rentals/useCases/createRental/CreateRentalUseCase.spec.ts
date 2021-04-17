@@ -17,6 +17,7 @@ describe('Create Rental', () => {
 
   beforeEach(() => {
     rentalsRepository = new RentalsRepositoryMock();
+    carsRepositoryMock = new CarsRepositoryMock();
     dayjsDateProvider = new DayjsDateProvider();
     createRentalUseCase = new CreateRentalUseCase(
       rentalsRepository,
