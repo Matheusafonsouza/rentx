@@ -3,7 +3,7 @@ import {
   CreateDateColumn,
   Entity,
   JoinColumn,
-  OneToOne,
+  ManyToOne,
   PrimaryColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -17,14 +17,14 @@ class Rental {
   @PrimaryColumn()
   id: string;
 
-  @OneToOne(() => Car)
+  @ManyToOne(() => Car)
   @JoinColumn({ name: 'car_id' })
   car: Car;
 
   @Column()
   car_id: string;
 
-  @OneToOne(() => User)
+  @ManyToOne(() => User)
   @JoinColumn({ name: 'user_id' })
   user: User;
 
