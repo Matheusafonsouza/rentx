@@ -38,6 +38,23 @@ class RentalsRepositoryMock implements IRentalsRepository {
     );
     return rental;
   }
+
+  async findById(id: string): Promise<Rental> {
+    const rental = this.rentals.find((rental) => rental.id === id);
+    return rental;
+  }
+
+  async save(rental: Rental): Promise<Rental> {
+    const rentalId = this.rentals.findIndex((rnt) => rnt.id === rental.id);
+
+    if (rentalId !== -1) {
+      this.rentals[rentalId] = rental;
+    } else {
+      this.rentals.push(rental);
+    }
+
+    return rental;
+  }
 }
 
 export { RentalsRepositoryMock };
