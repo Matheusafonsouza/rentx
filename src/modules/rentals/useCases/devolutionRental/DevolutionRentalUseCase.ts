@@ -45,8 +45,8 @@ class DevolutionRentalUseCase {
     }
 
     const delay = this.dateProvider.compareInDays(
-      dateNow,
-      rental.expected_return_date
+      rental.expected_return_date,
+      dateNow
     );
 
     let total = 0;
@@ -61,6 +61,7 @@ class DevolutionRentalUseCase {
     rental.total = total;
 
     await this.rentalsRepository.save(rental);
+    await this.carsRepository.updateAvailable(car.id, true);
 
     return rental;
   }
