@@ -65,6 +65,11 @@
           "Category"
         ],
         "summary": "Upload a new category",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "description": "Upload a new category",
         "requestBody": {
           "content": {
@@ -94,6 +99,11 @@
           "Specifications"
         ],
         "summary": "Create a specification",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "description": "Create a new specification",
         "requestBody": {
           "content": {
@@ -139,6 +149,37 @@
           }
         }
       }
+    },
+    "/cars": {
+      "post": {
+        "tags": [
+          "Cars"
+        ],
+        "summary": "Create a car",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "description": "Create a new car",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/Car"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Car already exists!"
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -166,6 +207,41 @@
       "example": {
         "name": "CategoryTest",
         "description": "This is a category test"
+      }
+    },
+    "Car": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "brand": {
+          "type": "string"
+        },
+        "category_id": {
+          "type": "string"
+        },
+        "daily_rate": {
+          "type": "number"
+        },
+        "fine_amount": {
+          "type": "number"
+        },
+        "license_plate": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "name": "car example",
+        "description": "This is a car example",
+        "brand": "car brand",
+        "category_id": "category-id-example",
+        "daily_rate": 60,
+        "fine_amount": 100,
+        "license_plate": "AAA-1234"
       }
     },
     "Session": {
