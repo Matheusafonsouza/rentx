@@ -44,6 +44,11 @@ class RentalsRepositoryMock implements IRentalsRepository {
     return rental;
   }
 
+  async findByUser(user_id: string): Promise<Rental[]> {
+    const rentals = this.rentals.filter((rental) => rental.user_id === user_id);
+    return rentals;
+  }
+
   async save(rental: Rental): Promise<Rental> {
     const rentalId = this.rentals.findIndex((rnt) => rnt.id === rental.id);
 
