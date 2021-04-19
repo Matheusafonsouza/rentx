@@ -180,6 +180,54 @@
           }
         }
       }
+    },
+    "/cars/images/{id}": {
+      "post": {
+        "tags": [
+          "Cars"
+        ],
+        "summary": "Upload car image",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "description": "Upload a car image",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Car id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multpart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "images": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
     }
   },
   "definitions": {
