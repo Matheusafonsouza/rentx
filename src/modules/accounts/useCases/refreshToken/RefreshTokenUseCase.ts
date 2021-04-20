@@ -20,7 +20,7 @@ class RefreshTokenUseCase {
     private dateProvider: IDateProvider
   ) {}
 
-  async execute(token: string): Promise<void> {
+  async execute(token: string): Promise<string> {
     const {
       secret_refresh_token,
       expires_in_refresh_token,
@@ -55,6 +55,8 @@ class RefreshTokenUseCase {
       refresh_token,
       user_id,
     });
+
+    return refresh_token;
   }
 }
 
