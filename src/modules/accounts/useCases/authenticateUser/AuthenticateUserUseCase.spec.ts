@@ -1,5 +1,7 @@
 import { ICreateUserDTO } from '@modules/accounts/dtos/ICreateUserDTO';
 import { UsersRepositoryMock } from '@modules/accounts/repositories/mocks/UsersRepositoryMock';
+import { UsersTokensRepositoryMock } from '@modules/accounts/repositories/mocks/UsersTokensRepositoryMock';
+import { DayjsDateProvider } from '@shared/container/providers/DateProvider/implementations/DayjsDateProvider';
 import { AppError } from '@shared/errors/AppError';
 
 import { CreateUserUseCase } from '../createUser/CreateUserUseCase';
@@ -8,11 +10,19 @@ import { AuthenticateUserUseCase } from './AuthenticateUserUsecase';
 let authenticateUserUseCase: AuthenticateUserUseCase;
 let createUserUseCase: CreateUserUseCase;
 let usersRepositoryMock: UsersRepositoryMock;
+let usersTokensRepositoryMock: UsersTokensRepositoryMock;
+let dateProvider: DayjsDateProvider;
 
 describe('Authenticate User', () => {
   beforeEach(() => {
+    dateProvider = new DayjsDateProvider();
     usersRepositoryMock = new UsersRepositoryMock();
-    authenticateUserUseCase = new AuthenticateUserUseCase(usersRepositoryMock);
+    usersTokensRepositoryMock = new UsersTokensRepositoryMock();
+    authenticateUserUseCase = new AuthenticateUserUseCase(
+      usersRepositoryMock,
+      usersTokensRepositoryMock,
+      dateProvider
+    );
     createUserUseCase = new CreateUserUseCase(usersRepositoryMock);
   });
 
