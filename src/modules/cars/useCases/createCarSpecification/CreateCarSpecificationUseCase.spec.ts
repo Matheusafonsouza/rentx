@@ -1,20 +1,20 @@
 import { CarsRepositoryMock } from '@modules/cars/repositories/mocks/CarsRepositoryMock';
-import { SpecificationRepositoryMock } from '@modules/cars/repositories/mocks/SpecificationRepositoryMock';
+import { SpecificationsRepositoryMock } from '@modules/cars/repositories/mocks/SpecificationsRepositoryMock';
 import { AppError } from '@shared/errors/AppError';
 
 import { CreateCarSpecificationUseCase } from './CreateCarSpecificationUseCase';
 
 let createCarSpecificationUseCase: CreateCarSpecificationUseCase;
 let carsRepositoryMock: CarsRepositoryMock;
-let specificationRepositoryMock: SpecificationRepositoryMock;
+let specificationsRepositoryMock: SpecificationsRepositoryMock;
 
 describe('Create Car Specification', () => {
   beforeEach(() => {
     carsRepositoryMock = new CarsRepositoryMock();
-    specificationRepositoryMock = new SpecificationRepositoryMock();
+    specificationsRepositoryMock = new SpecificationsRepositoryMock();
     createCarSpecificationUseCase = new CreateCarSpecificationUseCase(
       carsRepositoryMock,
-      specificationRepositoryMock
+      specificationsRepositoryMock
     );
   });
 
@@ -41,7 +41,7 @@ describe('Create Car Specification', () => {
       license_plate: 'abc-1234',
     });
 
-    const specification = await specificationRepositoryMock.create({
+    const specification = await specificationsRepositoryMock.create({
       description: 'test description',
       name: 'test name',
     });

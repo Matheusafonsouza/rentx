@@ -5,11 +5,11 @@ import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepositor
 import { CarsImagesRepository } from '@modules/cars/infra/typeorm/repositories/CarsImagesRepository';
 import { CarsRepository } from '@modules/cars/infra/typeorm/repositories/CarsRepository';
 import { CategoriesRepository } from '@modules/cars/infra/typeorm/repositories/CategoriesRepository';
-import { SpecificationRepository } from '@modules/cars/infra/typeorm/repositories/SpecificationRepository';
+import { SpecificationsRepository } from '@modules/cars/infra/typeorm/repositories/SpecificationsRepository';
 import { ICarsImagesRepository } from '@modules/cars/repositories/ICarsImagesRepository';
 import { ICarsRepository } from '@modules/cars/repositories/ICarsRepository';
 import { ICategoriesRepository } from '@modules/cars/repositories/ICategoriesRepository';
-import { ISpecificationRepository } from '@modules/cars/repositories/ISpecificationRepository';
+import { ISpecificationsRepository } from '@modules/cars/repositories/ISpecificationsRepository';
 import { RentalsRepository } from '@modules/rentals/infra/typeorm/repositories/RentalsRepository';
 import { IRentalsRepository } from '@modules/rentals/repositories/IRentalsRepository';
 
@@ -22,9 +22,9 @@ container.registerSingleton<ICategoriesRepository>(
   CategoriesRepository
 );
 
-container.registerSingleton<ISpecificationRepository>(
-  'SpecificationRepository',
-  SpecificationRepository
+container.registerSingleton<ISpecificationsRepository>(
+  'SpecificationsRepository',
+  SpecificationsRepository
 );
 
 container.registerSingleton<IUsersRepository>(

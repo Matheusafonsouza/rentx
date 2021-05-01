@@ -1,9 +1,9 @@
 import { ICreateSpecificationDTO } from '@modules/cars/dtos/ICreateSpecificationDTO';
 import { Specification } from '@modules/cars/infra/typeorm/entities/Specification';
 
-import { ISpecificationRepository } from '../ISpecificationRepository';
+import { ISpecificationsRepository } from '../ISpecificationsRepository';
 
-class SpecificationRepositoryMock implements ISpecificationRepository {
+class SpecificationsRepositoryMock implements ISpecificationsRepository {
   specifications: Specification[] = [];
 
   async create({
@@ -43,4 +43,4 @@ class SpecificationRepositoryMock implements ISpecificationRepository {
   }
 }
 
-export { SpecificationRepositoryMock };
+export { SpecificationsRepositoryMock };
